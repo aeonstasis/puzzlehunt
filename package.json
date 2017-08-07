@@ -14,7 +14,8 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
-    "lint": "eslint client server"
+    "lint": "eslint client server && flow",
+    "flow": "flow"
   },
   "pre-commit": [
     "lint",
@@ -54,10 +55,12 @@
     "ava": "^0.15.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-flow-runtime": "^0.11.1",
     "babel-plugin-webpack-loaders": "^0.7.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2015-native-modules": "^6.6.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
@@ -78,6 +81,8 @@
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "flow-bin": "^0.52.0",
+    "flow-runtime": "^0.14.0",
     "jsdom": "^9.2.1",
     "json-loader": "^0.5.4",
     "mock-css-modules": "^1.0.0",

@@ -1,3 +1,3 @@
-// Export Constants
-
-// Export Actions
+export type IndexAction = {
+  type: string,
+};

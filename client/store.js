@@ -1,5 +1,6 @@
 /**
  * Main store function
+ * flow
  */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
@@ -20,9 +21,9 @@ export function configureStore(initialState = {}) {
   const store = createStore(rootReducer, initialState, compose(...enhancers));
 
   // For hot reloading reducers
-  if (module.hot) {
+  if ((module: any).hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
+    (module: any).hot.accept('./reducers', () => {
       const nextReducer = require('./reducers').default; // eslint-disable-line global-require
       store.replaceReducer(nextReducer);
     });

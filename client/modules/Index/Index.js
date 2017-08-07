@@ -1,28 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+/* @flow */
+
+import React from 'react';
 
 // Import Style
 import styles from './Index.css';
 
-class Index extends Component {
-  render() {
-    return <div>Index</div>;
-  }
-}
+type Props = {};
 
-const mapStateToProps = (state) => {
-  return {};
+export default function Index(props: Props) {
+return <div>Index</div>;
 };
-
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-Index.propTypes = {
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Index);

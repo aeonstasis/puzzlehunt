@@ -1,14 +1,17 @@
 // Import Actions
-import {  } from './IndexActions';
+import type { IndexAction } from './IndexActions';
+
+export type IndexState = {};
 
 // Initial State
-const initialState = {};
+const initialState: IndexState = {};
 
-const IndexReducer = (state = initialState, action) => {
+export default function IndexReducer(
+  state: IndexState = initialState,
+  action: IndexAction,
+): IndexState {
   switch (action.type) {
     default:
       return state;
   }
-};
-
-export default IndexReducer;
+}

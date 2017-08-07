@@ -1,21 +1,16 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+
+import React from 'react';
 
 // Import Style
 import styles from './Header.css';
 
-export function Header(props, context) {
+export function Header() {
   return (
     <div className={styles.header}>
       Header
     </div>
   );
 }
-
-Header.contextTypes = {
-  router: React.PropTypes.object,
-};
-
-Header.propTypes = {
-};
 
 export default Header;

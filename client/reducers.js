@@ -1,5 +1,6 @@
 /**
  * Root Reducer
+ * @flow
  */
 import { combineReducers } from 'redux';
 

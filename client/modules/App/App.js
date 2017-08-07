@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+/* @flow */
+
+import React from 'react';
 
 // Import Style
 import styles from './App.css';
@@ -12,56 +13,41 @@ import Footer from './components/Footer/Footer';
 
 // Import Actions
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isMounted: false };
-  }
-
-  componentDidMount() {
-    this.setState({ isMounted: true });
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
-        <div>
-          <Helmet
-            title="MERN Starter - Blog App"
-            titleTemplate="%s - Blog App"
-            meta={[
-              { charset: 'utf-8' },
-              {
-                'http-equiv': 'X-UA-Compatible',
-                content: 'IE=edge',
-              },
-              {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-              },
-            ]}
-          />
-          <Header />
-          <div className={styles.container}>
-            {this.props.children}
-          </div>
-          <Footer />
-        </div>
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  children: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
+type Props = {
+  children: Object,
 };
 
-// Retrieve data from store as props
-function mapStateToProps(store) {
-  return {
-  };
+export function App(props: Props) {
+  return (
+    <div>
+      {typeof window === 'object' &&
+        !window.devToolsExtension &&
+        process.env.NODE_ENV === 'development' &&
+        <DevTools />}
+      <div>
+        <Helmet
+          title="MERN Starter - Blog App"
+          titleTemplate="%s - Blog App"
+          meta={[
+            { charset: 'utf-8' },
+            {
+              'http-equiv': 'X-UA-Compatible',
+              content: 'IE=edge',
+            },
+            {
+              name: 'viewport',
+              content: 'width=device-width, initial-scale=1',
+            },
+          ]}
+        />
+        <Header />
+        <div className={styles.container}>
+          {props.children}
+        </div>
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
-export default connect(mapStateToProps)(App);
+export default App;

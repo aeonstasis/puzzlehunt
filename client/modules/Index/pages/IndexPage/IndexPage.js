@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+/* @flow */
 
-class IndexPage extends Component {
-  render() {
-    return <div>IndexPage</div>;
-  }
+import React from 'react';
+
+export function IndexPage() {
+  return <div>IndexPage</div>;
 }
-
-IndexPage.contextTypes = {
-  router: React.PropTypes.object,
-};
 
 export default IndexPage;

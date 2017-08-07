@@ -1,5 +1,6 @@
 /**
  * Root Component
+ * @flow
  */
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -11,7 +12,11 @@ import routes from './routes';
 // Base stylesheet
 require('./main.css');
 
-export default function App(props) {
+type Props = {
+  store: Object,
+};
+
+export default function App(props: Props) {
   return (
     <Provider store={props.store}>
       <Router history={browserHistory}>
@@ -20,7 +25,3 @@ export default function App(props) {
     </Provider>
   );
 }
-
-App.propTypes = {
-  store: React.PropTypes.object.isRequired,
-};
